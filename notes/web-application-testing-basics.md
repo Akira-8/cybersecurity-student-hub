@@ -1,3 +1,9 @@
+---
+layout: page
+title: Web Application Testing Basics
+permalink: /notes/web-application-testing-basics/
+---
+
 # Web Application Testing Basics
 
 Web application testing is a major part of cybersecurity and pentesting.

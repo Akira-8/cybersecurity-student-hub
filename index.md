@@ -1,7 +1,7 @@
 # 🛡️ Cybersecurity Student Hub
 **Empowering students to learn security, share notes, and grow together.**
 
-[Explore Notes](#-learning-notes) | [Join Discussions](https://github.com/Akira-8/cybersecurity-student-hub/discussions) | [Contribute](CONTRIBUTING.md)
+[Explore Notes](#-learning-notes) | [Join Discussions](https://github.com/akira-8/cybersecurity-student-hub/discussions) | [Contribute](CONTRIBUTING.md)
 
 ---
 
@@ -30,7 +30,7 @@ Our goal is to build a structured path for every student:
 ## 🤝 How to Get Involved
 Building a "Big Community" requires **you**! 
 *   **Star this Repo:** If you find the notes helpful.
-*   **Ask Questions:** Use the [Discussions tab](https:/Akira-8/github.com//cybersecurity-student-hub/discussions).
+*   **Ask Questions:** Use the [Discussions tab](https:/akira-8/github.com//cybersecurity-student-hub/discussions).
 *   **Share Resources:** Found a cool tool? Tell us!
 
 ---

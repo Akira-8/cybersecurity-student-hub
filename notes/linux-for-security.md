@@ -1,3 +1,9 @@
+---
+layout: page
+title: Linux For Security
+permalink: /notes/linux-for-security/
+---
+
 # Linux for Security
 
 Linux is one of the most important operating systems to learn in cybersecurity.

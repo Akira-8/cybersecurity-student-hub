@@ -36,3 +36,10 @@ Useful platforms and tools for cybersecurity students.
     </ul>
   </div>
 </div>
+## More Resources
+
+For more related notes, resources, and updates, visit our GitHub repository:
+
+[Visit the GitHub Repo](https://github.com/akira-8/cybersecurity-student-hub)
+
+You can also join the discussions and suggest new topics.

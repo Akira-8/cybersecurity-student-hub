@@ -12,7 +12,7 @@ title: Cybersecurity Student Hub
     <a class="btn" href="{{ site.baseurl }}/notes/">Browse Notes</a>
     <a class="btn" href="{{ site.baseurl }}/resources/">Resources</a>
     <a class="btn" href="{{ site.baseurl }}/roadmap/">Roadmap</a>
-    <a class="btn" href="{{ site.baseurl }}/discussions/">Discussions</a>
+    <a class="btn" href="https://github.com/akira-8/cybersecurity-student-hub/discussions" target="_blank" rel="noopener">Discussions</a>
   </p>
 </div>
 

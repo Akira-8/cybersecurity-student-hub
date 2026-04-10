@@ -1,3 +1,9 @@
+---
+layout: page
+title: Enumeration Basics
+permalink: /notes/enumeration-basics/
+---
+
 # Enumeration Basics
 
 Enumeration is one of the most important parts of cybersecurity work, especially in pentesting and red teaming.

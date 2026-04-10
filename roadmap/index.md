@@ -1,28 +1,40 @@
 ---
-layout: page
+layout: default
 title: Roadmap
 permalink: /roadmap/
 ---
 
 # Roadmap
 
-This is the learning path for the Cybersecurity Student Hub.
+<div class="card-grid">
+  <div class="card">
+    <h3>Phase 1 — Foundations</h3>
+    <ul>
+      <li>Linux basics</li>
+      <li>Networking basics</li>
+      <li>Web basics</li>
+      <li>Security terminology</li>
+    </ul>
+  </div>
 
-## Phase 1 — Foundations
-- Linux basics
-- Networking basics
-- Web basics
-- Security terminology
+  <div class="card">
+    <h3>Phase 2 — Practical Skills</h3>
+    <ul>
+      <li>Enumeration</li>
+      <li>Burp Suite</li>
+      <li>Log analysis</li>
+      <li>OSINT</li>
+    </ul>
+  </div>
 
-## Phase 2 — Practical Skills
-- Enumeration
-- Burp Suite
-- Log analysis
-- OSINT
-
-## Phase 3 — Advanced Topics
-- Privilege escalation
-- Red teaming
-- Pentesting workflow
-- Active Directory
-- Detection and response
+  <div class="card">
+    <h3>Phase 3 — Advanced Topics</h3>
+    <ul>
+      <li>Privilege escalation</li>
+      <li>Red teaming</li>
+      <li>Pentesting workflow</li>
+      <li>Active Directory</li>
+      <li>Detection and response</li>
+    </ul>
+  </div>
+</div>

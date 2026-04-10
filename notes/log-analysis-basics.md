@@ -1,3 +1,9 @@
+---
+layout: page
+title: Log Analysis Basics 
+permalink: /notes/log-analysis-basics/
+---
+
 # Log Analysis Basics
 
 Log analysis is an important skill for security analysts and blue team learners.

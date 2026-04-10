@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: note
 title: Enumeration Basics
+description: Learn how to gather useful information before testing a target.
 permalink: /notes/enumeration-basics/
 ---
 

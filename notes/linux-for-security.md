@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: note
 title: Linux For Security
 permalink: /notes/linux-for-security/
 ---

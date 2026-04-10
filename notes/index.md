@@ -1,21 +1,21 @@
 ---
-layout: page
+layout: default
 title: Notes
 permalink: /notes/
 ---
 
 # Notes
 
-Choose a topic below.
+Pick a topic below.
 
-## Core Notes
-
-- [Enumeration Basics](enumeration-basics/)
-- [Security Analyst Basics](security-analyst-basics/)
-- [Web Application Testing Basics](web-application-testing-basics/)
-- [Red Teaming vs Pentesting](red-teaming-vs-pentesting/)
-- [Log Analysis Basics](log-analysis-basics/)
-- [Burp Suite Basics](burp-suite-basics/)
-- [Privilege Escalation Intro](privilege-escalation-intro/)
-- [OSINT Basics](osint-basics/)
-- [Linux for Security](linux-for-security/)
+<div class="card-grid">
+  <div class="card"><h3><a href="enumeration-basics/">Enumeration Basics</a></h3></div>
+  <div class="card"><h3><a href="security-analyst-basics/">Security Analyst Basics</a></h3></div>
+  <div class="card"><h3><a href="web-application-testing-basics/">Web Application Testing Basics</a></h3></div>
+  <div class="card"><h3><a href="red-teaming-vs-pentesting/">Red Teaming vs Pentesting</a></h3></div>
+  <div class="card"><h3><a href="log-analysis-basics/">Log Analysis Basics</a></h3></div>
+  <div class="card"><h3><a href="burp-suite-basics/">Burp Suite Basics</a></h3></div>
+  <div class="card"><h3><a href="privilege-escalation-intro/">Privilege Escalation Intro</a></h3></div>
+  <div class="card"><h3><a href="osint-basics/">OSINT Basics</a></h3></div>
+  <div class="card"><h3><a href="linux-for-security/">Linux for Security</a></h3></div>
+</div>

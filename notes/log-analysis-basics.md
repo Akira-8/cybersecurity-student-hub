@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: note
 title: Log Analysis Basics 
 permalink: /notes/log-analysis-basics/
 ---

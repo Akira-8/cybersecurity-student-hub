@@ -4,19 +4,22 @@
 @import "{{ site.theme }}";
 
 .page-header {
-  background: linear-gradient(135deg, #07111f, #123d6b);
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color: #0f172a;
+  border-bottom: 1px solid #cbd5e1;
   padding: 4rem 1rem 3rem;
 }
 
 .project-name {
+  color: #0f172a;
   font-size: 3rem;
   font-weight: 800;
 }
 
 .project-tagline {
+  color: #334155;
   max-width: 760px;
   margin: 0 auto;
-  opacity: 0.95;
 }
 
 .main-content {
@@ -33,11 +36,12 @@
   display: inline-block;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  background: #e8f1ff;
-  color: #0b4a8b;
+  background: #eff6ff;
+  color: #1d4ed8;
   font-weight: 700;
   font-size: 0.85rem;
   margin-bottom: 1rem;
+  border: 1px solid #bfdbfe;
 }
 
 .card-grid {
@@ -49,16 +53,16 @@
 
 .card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 18px;
   padding: 1rem 1.1rem;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
 }
 
 .card h3 {
@@ -71,7 +75,7 @@
 
 .callout {
   background: #f8fafc;
-  border-left: 4px solid #0b4a8b;
+  border-left: 4px solid #3b82f6;
   padding: 1rem 1.2rem;
   border-radius: 12px;
 }

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: note
 title: OSINT Basics
 permalink: /notes/osint-basics/
 ---

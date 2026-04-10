@@ -1,3 +1,9 @@
+---
+layout: page
+title: OSINT Basics
+permalink: /notes/osint-basics/
+---
+
 # OSINT Basics
 
 OSINT means Open Source Intelligence.

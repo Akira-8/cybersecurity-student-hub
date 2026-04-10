@@ -1,5 +1,3 @@
-remote_theme: pages-themes/minima
 title: Cybersecurity Student Hub
-description: A community-driven space for cybersecurity notes, resources, and learning.
-google_analytics: 
-show_downloads: false
+description: A student cybersecurity hub for notes, resources, and community learning.
+theme: cayman

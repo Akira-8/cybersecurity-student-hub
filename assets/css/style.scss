@@ -1,0 +1,81 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header {
+  background: linear-gradient(135deg, #07111f, #123d6b);
+  padding: 4rem 1rem 3rem;
+}
+
+.project-name {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.project-tagline {
+  max-width: 760px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+.main-content {
+  max-width: 1050px;
+  font-size: 1.05rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #e8f1ff;
+  color: #0b4a8b;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.section {
+  margin-top: 2.25rem;
+}
+
+.callout {
+  background: #f8fafc;
+  border-left: 4px solid #0b4a8b;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+}
+
+.btn + .btn {
+  margin-left: 0.5rem;
+}

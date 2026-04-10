@@ -1,3 +1,9 @@
+---
+layout: page
+title: Security Analyst Basics
+permalink: /notes/security-analyst-basics/
+---
+
 # Security Analyst Basics
 
 A security analyst focuses on monitoring, investigating, and responding to suspicious activity in systems and networks.

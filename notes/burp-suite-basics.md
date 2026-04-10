@@ -1,6 +1,7 @@
 ---
-layout: page
-title: burp-suite-basics
+layout: note
+title: Burp Suite Basics
+description: Learn how to inspect and modify web traffic during testing.
 permalink: /notes/burp-suite-basics/
 ---
 

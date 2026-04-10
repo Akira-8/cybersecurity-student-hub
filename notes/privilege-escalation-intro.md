@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: note
 title: Privilege Escalation Intro
 permalink: /notes/privilege-escalation-intro/
 ---

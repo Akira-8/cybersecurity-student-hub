@@ -1,3 +1,9 @@
+---
+layout: page
+title: burp-suite-basics
+permalink: /notes/burp-suite-basics/
+---
+
 # Burp Suite Basics
 
 Burp Suite is one of the most important tools for web application security testing.

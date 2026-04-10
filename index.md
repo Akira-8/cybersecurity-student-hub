@@ -39,4 +39,4 @@ Building a "Big Community" requires **you**!
 *This repository is for **educational purposes only**. All activities should be performed in authorized lab environments. We do not support or condone illegal hacking.*
 
 ---
-© 2024 Cybersecurity Student Hub | Built by [Your Name]
+© 2026 Cybersecurity Student Hub | Built by Akira

@@ -2,6 +2,7 @@
 layout: default
 title: Cybersecurity Student Hub
 ---
+> For more related notes and updates, visit our GitHub repository and join the discussions.
 
 <div class="hero">
   <span class="badge">Student Cybersecurity Community</span>

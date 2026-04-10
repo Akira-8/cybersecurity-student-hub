@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Resources
 permalink: /resources/
 ---
@@ -8,26 +8,31 @@ permalink: /resources/
 
 Useful platforms and tools for cybersecurity students.
 
-## Learning Platforms
+<div class="card-grid">
+  <div class="card">
+    <h3>Learning Platforms</h3>
+    <ul>
+      <li>TryHackMe</li>
+      <li>Hack The Box Academy</li>
+      <li>PortSwigger Web Security Academy</li>
+      <li>OverTheWire</li>
+      <li>OWASP</li>
+      <li>Blue Team Labs Online</li>
+      <li>Cisco Networking Academy</li>
+    </ul>
+  </div>
 
-- TryHackMe
-- Hack The Box Academy
-- PortSwigger Web Security Academy
-- OverTheWire
-- OWASP
-- Blue Team Labs Online
-- Cisco Networking Academy
-
-## Tools
-
-- Nmap
-- Burp Suite
-- Wireshark
-- FFUF
-- Gobuster
-- CyberChef
-- Splunk
-- Sysmon
-
-## More
-More resources will be added over time.
+  <div class="card">
+    <h3>Tools</h3>
+    <ul>
+      <li>Nmap</li>
+      <li>Burp Suite</li>
+      <li>Wireshark</li>
+      <li>FFUF</li>
+      <li>Gobuster</li>
+      <li>CyberChef</li>
+      <li>Splunk</li>
+      <li>Sysmon</li>
+    </ul>
+  </div>
+</div>

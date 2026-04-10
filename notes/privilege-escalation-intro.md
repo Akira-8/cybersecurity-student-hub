@@ -1,3 +1,9 @@
+---
+layout: page
+title: Privilege Escalation Intro
+permalink: /notes/privilege-escalation-intro/
+---
+
 # Privilege Escalation Intro
 
 Privilege escalation is the process of gaining higher permissions on a system after initial access has already been achieved in an authorized environment.

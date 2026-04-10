@@ -79,3 +79,10 @@ title: Cybersecurity Student Hub
 <div class="section callout">
   <strong>Ethical learning only.</strong> No flags, no private lab answers, no illegal content.
 </div>
+## More Notes
+
+For more related notes and updates, visit our GitHub repository:
+
+[Cybersecurity Student Hub](https://github.com/akira-8/cybersecurity-student-hub)
+
+Feel free to explore the notes, share ideas, and join the discussions.

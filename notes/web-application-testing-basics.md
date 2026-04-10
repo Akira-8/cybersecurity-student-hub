@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: note
 title: Web Application Testing Basics
 permalink: /notes/web-application-testing-basics/
 ---

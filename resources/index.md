@@ -6,7 +6,7 @@ permalink: /resources/
 
 # Resources
 
-Useful platforms and tools for cybersecurity students.
+Useful platforms, tools, and learning material for cybersecurity students.
 
 <div class="card-grid">
   <div class="card">
@@ -19,6 +19,8 @@ Useful platforms and tools for cybersecurity students.
       <li>OWASP</li>
       <li>Blue Team Labs Online</li>
       <li>Cisco Networking Academy</li>
+      <li>LetsDefend</li>
+      <li>CyberDefenders</li>
     </ul>
   </div>
 
@@ -33,9 +35,18 @@ Useful platforms and tools for cybersecurity students.
       <li>CyberChef</li>
       <li>Splunk</li>
       <li>Sysmon</li>
+      <li>BloodHound</li>
+      <li>Volatility</li>
     </ul>
   </div>
+
+  <div class="card">
+    <h3>YouTube and Blogs</h3>
+    <p>Free video content and articles from the community.</p>
+    <p><a href="https://github.com/Akira-8/cybersecurity-student-hub/blob/main/resources/youtube-and-blogs.md">View the full list</a></p>
+  </div>
 </div>
+
 ## More Resources
 
 For more related notes, resources, and updates, visit our GitHub repository:

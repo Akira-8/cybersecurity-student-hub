@@ -23,17 +23,6 @@ Pick a topic below.
   <div class="card"><h3><a href="active-directory-basics/">Active Directory Basics</a></h3></div>
   <div class="card"><h3><a href="incident-response-basics/">Incident Response Basics</a></h3></div>
   <div class="card"><h3><a href="red-teaming-vs-pentesting/">Red Teaming vs Pentesting</a></h3></div>
-  ### [SQL Injection Basics]({{ site.baseurl }}/notes/sql-injection-basics/)
-
-### [XSS Basics]({{ site.baseurl }}/notes/xss-basics/)
-
-### [Nmap Basics]({{ site.baseurl }}/notes/nmap-basics/)
-
-### [Password Attacks Basics]({{ site.baseurl }}/notes/password-attacks-basics/)
-
-### [Metasploit Basics]({{ site.baseurl }}/notes/metasploit-basics/)
-
-### [CTF Tips for Beginners]({{ site.baseurl }}/notes/ctf-tips/)
 </div>
 
 ## More Notes

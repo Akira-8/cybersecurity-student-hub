@@ -1,90 +1,112 @@
-# Cybersecurity Student Hub
+# 🛡️ Cybersecurity Student Hub
 
-A public learning and community repository for students interested in cybersecurity.
+> A free, structured learning hub for cybersecurity students — notes, roadmap, resources, and community.
 
-## Purpose
+[![GitHub stars](https://img.shields.io/github/stars/Akira-8/cybersecurity-student-hub?style=social)](https://github.com/Akira-8/cybersecurity-student-hub/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Akira-8/cybersecurity-student-hub?style=social)](https://github.com/Akira-8/cybersecurity-student-hub/network/members)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Akira-8/cybersecurity-student-hub)](https://github.com/Akira-8/cybersecurity-student-hub/commits/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-This repository collects structured notes, practical guides, and useful resources for students learning cybersecurity.
+---
 
-It starts with core concepts and will gradually grow into more advanced topics.
+## 🌐 Live Site → [akira-8.github.io/cybersecurity-student-hub](https://akira-8.github.io/cybersecurity-student-hub/)
 
-## What This Repository Covers
+---
 
-- Security Analyst fundamentals
-- Enumeration and reconnaissance
-- Web application testing basics
-- Pentesting methodology
-- Red teaming concepts
-- Linux and networking for security
-- Detection and incident triage
-- Study resources and tools
+## What is this?
 
-## Learning Approach
+A public, community-built learning repository for students getting into cybersecurity.  
+No paywalls. No login. Just structured notes, a clear roadmap, and useful resources.
 
-This repository is built to grow step by step.
+Built for:
+- Beginners who want structure
+- TryHackMe and HackTheBox learners
+- Students studying for Security+, eJPT, or CEH
+- Anyone who wants to learn offensive and defensive security step by step
 
-We start with strong fundamentals and slowly move toward more advanced topics such as:
+---
 
-- privilege escalation
-- Active Directory
-- web vulnerabilities
-- defensive monitoring
-- threat detection
-- post-exploitation concepts
-- attack paths and methodology
+## 📚 What's Inside
 
-## Who This Is For
+| Section | What you get |
+|--------|-------------|
+| [Notes](https://akira-8.github.io/cybersecurity-student-hub/notes/) | 20 topic notes covering foundations to advanced |
+| [Roadmap](https://akira-8.github.io/cybersecurity-student-hub/roadmap/) | Step-by-step learning path with 6 phases |
+| [Resources](https://akira-8.github.io/cybersecurity-student-hub/resources/) | Platforms, tools, YouTube, blogs |
+| [Discussions](https://github.com/Akira-8/cybersecurity-student-hub/discussions) | Community Q&A and topic suggestions |
 
-- students learning cybersecurity
-- beginners who want structured notes
-- TryHackMe learners
-- people interested in security analyst, pentesting, and red teaming
-- students who want to learn together and contribute
+---
 
-## Repository Structure
+## 🗺️ Learning Phases
 
-- `notes/` → topic notes
-- `resources/` → useful platforms, tools, and links
-- `roadmaps/` → learning paths and plans
-- `CONTRIBUTING.md` → how to contribute
+| Phase | Topics |
+|-------|--------|
+| 1 — Foundations | Networking, Linux, Security Basics |
+| 2 — Recon | Enumeration, Nmap, OSINT |
+| 3 — Web Security | Burp Suite, SQLi, XSS, Auth |
+| 4 — Attack Tools | Metasploit, Password Attacks |
+| 5 — Blue Team | Log Analysis, SIEM, Incident Response |
+| 6 — Advanced | Privesc, Active Directory, Red Teaming, CTF |
 
-## Community Rules
+---
 
-- ethical and legal learning only
-- no flags
-- no private lab answers
-- no paid content leaks
-- be respectful
-- keep content useful and clear
+## 📝 Current Notes (20 topics)
 
-## Contributing
+**Foundations**
+- Networking Basics · Linux for Security · Security Analyst Basics
 
-Contributions are welcome.
+**Recon**
+- Enumeration Basics · Nmap Basics · OSINT Basics
 
-You can contribute by:
+**Web Security**
+- Web App Testing · Burp Suite · Auth & Sessions · SQL Injection · XSS
 
-- adding notes
-- improving explanations
-- suggesting topics
-- sharing useful resources
-- fixing mistakes
+**Attack Tools**
+- Password Attacks · Metasploit
 
-## Growth Plan
+**Blue Team**
+- Log Analysis · SIEM Basics · Incident Response
 
-This repository will be updated regularly with new notes and community-friendly learning material.
+**Advanced**
+- Privilege Escalation · Active Directory · Red Teaming vs Pentesting · CTF Tips
 
-Planned future topics include:
+---
 
-- log analysis
-- SIEM basics
-- enumeration workflows
-- Burp Suite basics
-- authentication and session testing
-- OSINT
-- privilege escalation
-- Active Directory
-- blue team and red team workflows
+## 🔜 Coming Soon
 
-## Educational Use Only
+- File Inclusion (LFI/RFI) · Command Injection · SSRF · CSRF · XXE · IDOR
+- Gobuster · Wireshark · Netcat · CyberChef Guide · ffuf
+- Windows Privesc · BloodHound · Kerberoasting · Pass-the-Hash
+- Memory Forensics · Malware Analysis · Threat Hunting
+- Security+ Study Notes · eJPT Prep · Home Lab Guide
 
-This repository is for educational and ethical cybersecurity learning only.
+---
+
+## 🤝 Contributing
+
+Contributions are welcome and encouraged.
+
+1. Fork the repo
+2. Add your note or fix under the right folder
+3. Follow the format of existing notes
+4. Open a pull request
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
+
+---
+
+## 📜 Rules
+
+- Ethical and legal learning only
+- No CTF flags or private lab answers
+- No paid content leaks
+- Be respectful to contributors
+
+---
+
+## ⭐ If this helped you, star the repo — it helps other students find it.
+
+---
+
+**Maintained by [Akira-8](https://github.com/Akira-8)**  
+MIT License · Educational use only

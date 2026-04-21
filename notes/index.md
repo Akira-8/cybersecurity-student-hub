@@ -1,39 +1,55 @@
 ---
 layout: default
 title: Notes
-permalink: /notes/
 ---
 
 # Notes
 
-Pick a topic below.
+Pick a topic below. If you are new, follow the [Roadmap]({{ site.baseurl }}/roadmap/) for the recommended order.
 
-<div class="card-grid">
-  <div class="card"><h3><a href="networking-basics/">Networking Basics</a></h3></div>
-  <div class="card"><h3><a href="linux-for-security/">Linux for Security</a></h3></div>
-  <div class="card"><h3><a href="security-analyst-basics/">Security Analyst Basics</a></h3></div>
-  <div class="card"><h3><a href="enumeration-basics/">Enumeration Basics</a></h3></div>
-  <div class="card"><h3><a href="web-application-testing-basics/">Web Application Testing Basics</a></h3></div>
-  <div class="card"><h3><a href="burp-suite-basics/">Burp Suite Basics</a></h3></div>
-  <div class="card"><h3><a href="authentication-and-sessions/">Authentication and Sessions</a></h3></div>
-  <div class="card"><h3><a href="log-analysis-basics/">Log Analysis Basics</a></h3></div>
-  <div class="card"><h3><a href="siem-basics/">SIEM Basics</a></h3></div>
-  <div class="card"><h3><a href="osint-basics/">OSINT Basics</a></h3></div>
-  <div class="card"><h3><a href="privilege-escalation-intro/">Privilege Escalation Intro</a></h3></div>
-  <div class="card"><h3><a href="active-directory-basics/">Active Directory Basics</a></h3></div>
-  <div class="card"><h3><a href="incident-response-basics/">Incident Response Basics</a></h3></div>
-  <div class="card"><h3><a href="red-teaming-vs-pentesting/">Red Teaming vs Pentesting</a></h3></div>
-</div>
+---
 
-## More Notes
+## Foundations
 
-For more related notes, resources, and updates, visit our GitHub repository:
+- [Networking Basics]({{ site.baseurl }}/notes/networking-basics/)
+- [Linux for Security]({{ site.baseurl }}/notes/linux-for-security/)
+- [Security Analyst Basics]({{ site.baseurl }}/notes/security-analyst-basics/)
 
-[Visit the GitHub Repo](https://github.com/akira-8/cybersecurity-student-hub)
+## Recon and Enumeration
 
-You can also join the discussions and suggest new topics.
+- [Enumeration Basics]({{ site.baseurl }}/notes/enumeration-basics/)
+- [Nmap Basics]({{ site.baseurl }}/notes/nmap-basics/)
+- [OSINT Basics]({{ site.baseurl }}/notes/osint-basics/)
 
+## Web Application Security
 
-[Visit the GitHub Repo](https://github.com/akira-8/cybersecurity-student-hub)
+- [Web Application Testing Basics]({{ site.baseurl }}/notes/web-application-testing-basics/)
+- [Burp Suite Basics]({{ site.baseurl }}/notes/burp-suite-basics/)
+- [Authentication and Sessions]({{ site.baseurl }}/notes/authentication-and-sessions/)
+- [SQL Injection Basics]({{ site.baseurl }}/notes/sql-injection-basics/)
+- [XSS Basics]({{ site.baseurl }}/notes/xss-basics/)
 
-You can also join the discussions and suggest new topics.
+## Attack Tools and Techniques
+
+- [Password Attacks Basics]({{ site.baseurl }}/notes/password-attacks-basics/)
+- [Metasploit Basics]({{ site.baseurl }}/notes/metasploit-basics/)
+
+## Blue Team and Detection
+
+- [Log Analysis Basics]({{ site.baseurl }}/notes/log-analysis-basics/)
+- [SIEM Basics]({{ site.baseurl }}/notes/siem-basics/)
+- [Incident Response Basics]({{ site.baseurl }}/notes/incident-response-basics/)
+
+## Advanced Topics
+
+- [Privilege Escalation Intro]({{ site.baseurl }}/notes/privilege-escalation-intro/)
+- [Active Directory Basics]({{ site.baseurl }}/notes/active-directory-basics/)
+- [Red Teaming vs Pentesting]({{ site.baseurl }}/notes/red-teaming-vs-pentesting/)
+
+## CTF and Practice
+
+- [CTF Tips for Beginners]({{ site.baseurl }}/notes/ctf-tips/)
+
+---
+
+> More notes are being added regularly. Follow the [Roadmap]({{ site.baseurl }}/roadmap/) or join the [Discussions](https://github.com/akira-8/cybersecurity-student-hub/discussions) to suggest what to add next.

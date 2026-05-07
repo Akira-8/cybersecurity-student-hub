@@ -48,6 +48,26 @@ Build your base before touching any tools. If you skip this, everything else wil
 
 ---
 
+## Phase 3b — Web Vulnerabilities Advanced
+
+These notes extend Phase 3 with deeper attack techniques.
+
+### [File Inclusion — LFI and RFI](https://akira-8.github.io/cybersecurity-student-hub/notes/file-inclusion-lfi-rfi/)
+
+### [Command Injection](https://akira-8.github.io/cybersecurity-student-hub/notes/command-injection/)
+
+### [SSRF — Server-Side Request Forgery](https://akira-8.github.io/cybersecurity-student-hub/notes/ssrf/)
+
+### [CSRF — Cross-Site Request Forgery](https://akira-8.github.io/cybersecurity-student-hub/notes/csrf/)
+
+### [XXE — XML External Entity](https://akira-8.github.io/cybersecurity-student-hub/notes/xxe/)
+
+### [IDOR — Insecure Direct Object Reference](https://akira-8.github.io/cybersecurity-student-hub/notes/idor/)
+
+When you finish Phase 3b you can identify and test all major OWASP Top 10 web vulnerabilities manually.
+
+---
+
 ## Phase 4 — Attack Tools and Techniques
 > Learn the tools used in real engagements.
 
@@ -111,15 +131,6 @@ Follow this exact sequence if you have never studied cybersecurity before:
 ## Coming Soon — What We Are Adding Next
 
 These notes are being written and will be published to this hub.
-
-### Web Vulnerabilities
-- File Inclusion — LFI and RFI explained with examples
-- Command Injection — how it works, blind vs reflected, bypasses
-- SSRF — Server-Side Request Forgery, what it can reach
-- CSRF — Cross-Site Request Forgery and token bypass
-- XXE — XML External Entity injection
-- IDOR — Insecure Direct Object References
-- Open Redirect — detection and impact
 
 ### Tools and Workflow
 - Gobuster — directory and DNS brute forcing

@@ -71,6 +71,22 @@ Pick a topic below. New here? Follow the [Roadmap](/cybersecurity-student-hub/ro
 
 ---
 
+## Web Vulnerabilities — Advanced
+
+### [File Inclusion — LFI and RFI](https://akira-8.github.io/cybersecurity-student-hub/notes/file-inclusion-lfi-rfi/)
+
+### [Command Injection](https://akira-8.github.io/cybersecurity-student-hub/notes/command-injection/)
+
+### [SSRF — Server-Side Request Forgery](https://akira-8.github.io/cybersecurity-student-hub/notes/ssrf/)
+
+### [CSRF — Cross-Site Request Forgery](https://akira-8.github.io/cybersecurity-student-hub/notes/csrf/)
+
+### [XXE — XML External Entity](https://akira-8.github.io/cybersecurity-student-hub/notes/xxe/)
+
+### [IDOR — Insecure Direct Object Reference](https://akira-8.github.io/cybersecurity-student-hub/notes/idor/)
+
+---
+
 ## CTF and Practice
 
 ### [CTF Tips for Beginners](https://akira-8.github.io/cybersecurity-student-hub/notes/ctf-tips/)

@@ -1,0 +1,211 @@
+---
+layout: default
+title: Gobuster Basics
+---
+
+# Gobuster Basics
+
+## What is Gobuster
+
+Gobuster is a fast directory, file, DNS subdomain, and virtual host brute-forcing tool written in Go. It is one of the most commonly used enumeration tools in CTFs and real penetration tests.
+
+---
+
+## Installation
+
+```bash
+# Kali Linux / Parrot OS — already installed
+gobuster --help
+
+# Manual install
+sudo apt install gobuster
+
+# From source
+go install github.com/OJ/gobuster/v3@latest
+```
+
+---
+
+## Modes
+
+| Mode | What it does |
+|------|-------------|
+| `dir` | Brute force directories and files |
+| `dns` | Brute force DNS subdomains |
+| `vhost` | Brute force virtual hosts |
+| `fuzz` | Fuzz any part of a URL |
+| `s3` | Enumerate Amazon S3 buckets |
+
+---
+
+## Dir Mode — Directory and File Brute Forcing
+
+Find hidden directories and files on a web server.
+
+```bash
+gobuster dir -u http://target.com -w /usr/share/wordlists/dirb/common.txt
+```
+
+### Common flags
+
+| Flag | Meaning |
+|------|---------|
+| `-u` | Target URL |
+| `-w` | Wordlist path |
+| `-x` | File extensions to append |
+| `-t` | Number of threads (default 10) |
+| `-o` | Output file |
+| `-b` | Status codes to blacklist |
+| `-s` | Status codes to whitelist |
+| `--timeout` | HTTP timeout per request |
+| `-k` | Skip TLS certificate verification |
+| `-H` | Add a custom HTTP header |
+| `-c` | Add cookies |
+
+### Find files with extensions
+
+```bash
+gobuster dir \
+  -u http://target.com \
+  -w /usr/share/seclists/Discovery/Web-Content/common.txt \
+  -x php,html,txt,bak,zip \
+  -t 50
+```
+
+### Authenticated scan (with cookie)
+
+```bash
+gobuster dir \
+  -u http://target.com \
+  -w /usr/share/seclists/Discovery/Web-Content/common.txt \
+  -c "session=abc123"
+```
+
+### HTTPS with self-signed cert
+
+```bash
+gobuster dir -u https://target.com -w wordlist.txt -k
+```
+
+---
+
+## DNS Mode — Subdomain Brute Forcing
+
+Find subdomains of a domain.
+
+```bash
+gobuster dns -d target.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+```
+
+### Common flags
+
+| Flag | Meaning |
+|------|---------|
+| `-d` | Target domain |
+| `-w` | Wordlist |
+| `-i` | Show IP addresses of found subdomains |
+| `-r` | Custom DNS resolver |
+
+```bash
+gobuster dns \
+  -d target.com \
+  -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt \
+  -i \
+  -t 50
+```
+
+---
+
+## VHost Mode — Virtual Host Brute Forcing
+
+Find virtual hosts (multiple sites on one IP).
+
+```bash
+gobuster vhost \
+  -u http://10.10.10.10 \
+  -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt \
+  --append-domain
+```
+
+---
+
+## Recommended Wordlists (from SecLists)
+/usr/share/seclists/Discovery/Web-Content/common.txt          — fast, common dirs
+
+/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt  — thorough
+
+/usr/share/seclists/Discovery/Web-Content/raft-large-files.txt  — file discovery
+
+/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt  — DNS
+
+/usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt — DNS thorough
+
+Install SecLists:
+```bash
+sudo apt install seclists
+# or
+git clone https://github.com/danielmiessler/SecLists /usr/share/seclists
+```
+
+---
+
+## Reading Output
+/admin                (Status: 301) [Size: 312] [--> http://target.com/admin/]
+
+/login                (Status: 200) [Size: 1542]
+
+/backup               (Status: 403) [Size: 287]
+
+/.htaccess            (Status: 403) [Size: 287]
+
+/config.php           (Status: 200) [Size: 0]
+
+| Status | Meaning |
+|--------|---------|
+| 200 | Found and accessible |
+| 301/302 | Redirect — follow it |
+| 403 | Forbidden — exists but blocked |
+| 404 | Not found |
+| 500 | Server error — may indicate it exists |
+
+A 403 is still interesting — it means the directory exists even if you cannot access it directly.
+
+---
+
+## CTF Tips
+
+- Always try `-x php,txt,html,bak,zip,old,conf` for file extensions
+- 403 pages sometimes bypass with path tricks: `/admin/`, `/admin//`, `/%2fadmin/`
+- Use `raft-large-files.txt` to find backup and config files like `config.bak`, `db.sql`, `.env`
+- Try both `/` and no trailing slash
+
+---
+
+## Gobuster vs ffuf vs dirb
+
+| Tool | Speed | Features | Best for |
+|------|-------|----------|---------|
+| Gobuster | Fast | DNS, vhost, dir | General use, CTFs |
+| ffuf | Very fast | Highly customisable | Advanced fuzzing |
+| dirb | Slow | Simple | Quick checks |
+
+---
+
+## Practice Labs
+
+- TryHackMe: Content Discovery room
+- TryHackMe: Gobuster room
+- Any HackTheBox web machine — gobuster is almost always the first tool used
+
+---
+
+## Key Terms
+
+| Term | Meaning |
+|------|---------|
+| Dir brute forcing | Guessing hidden paths on a web server |
+| Subdomain | A prefix of a domain, e.g. `admin.target.com` |
+| Vhost | Multiple websites sharing one IP |
+| SecLists | Collection of wordlists for security testing |
+| 403 Forbidden | Resource exists but access is blocked |
+| Extension fuzzing | Appending `.php`, `.bak` etc. to find hidden files |

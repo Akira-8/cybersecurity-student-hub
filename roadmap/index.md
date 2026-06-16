@@ -151,12 +151,7 @@ Follow this exact sequence if you have never studied cybersecurity before:
 These notes are being written and will be published to this hub.
 
 ### Tools and Workflow
-- Gobuster — directory and DNS brute forcing
 - Nikto — web server scanning basics
-- Netcat and Socat — listeners, shells, file transfer
-- Wireshark Basics — reading pcap files, filtering traffic
-- CyberChef Guide — encoding, decoding, chaining operations
-- ffuf — fast web fuzzer for directories and parameters
 
 ### Active Directory (Advanced)
 - Kerberoasting — how it works and how to crack tickets

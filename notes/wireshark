@@ -1,0 +1,216 @@
+---
+layout: default
+title: Wireshark Basics
+---
+
+# Wireshark Basics
+
+## What is Wireshark
+
+Wireshark is a free, open-source packet analyser. It captures network traffic in real time and lets you inspect every packet — protocol, source, destination, payload, and more. It is essential for network forensics, CTF challenges, and understanding how protocols work.
+
+---
+
+## Installation
+
+```bash
+# Kali / Ubuntu
+sudo apt install wireshark
+
+# Windows / macOS — download from
+# https://www.wireshark.org/download.html
+```
+
+---
+
+## Key Concepts
+
+| Term | Meaning |
+|------|---------|
+| Packet | A single unit of network data |
+| Capture | Recording packets from a network interface |
+| pcap / pcapng | File format for saved captures |
+| Dissector | Plugin that parses a specific protocol |
+| Stream | A sequence of related packets (e.g. one TCP connection) |
+| Filter | Expression to show/hide specific packets |
+
+---
+
+## Interface Overview
+
+- **Packet List** — top pane, one row per packet
+- **Packet Details** — middle pane, protocol layers expanded
+- **Packet Bytes** — bottom pane, raw hex and ASCII
+
+---
+
+## Capture Filters vs Display Filters
+
+| Type | When applied | Syntax |
+|------|-------------|--------|
+| Capture filter | Before capturing — limits what is recorded | BPF syntax |
+| Display filter | After capturing — shows/hides packets | Wireshark syntax |
+
+Always use display filters during analysis — they are more powerful.
+
+---
+
+## Essential Display Filters
+
+### Protocol filters
+http              — all HTTP traffic
+
+https / ssl / tls — encrypted web traffic
+
+dns               — DNS queries and responses
+
+ftp               — FTP traffic
+
+ssh               — SSH traffic
+
+tcp               — all TCP packets
+
+udp               — all UDP packets
+
+icmp              — ping traffic
+
+smtp              — email sending
+
+### IP and port filters
+ip.addr == 192.168.1.1          — traffic to or from this IP
+
+ip.src == 192.168.1.1           — traffic FROM this IP
+
+ip.dst == 192.168.1.1           — traffic TO this IP
+
+tcp.port == 80                  — traffic on port 80
+
+tcp.dstport == 443              — traffic TO port 443
+
+### Combining filters
+ip.addr == 10.0.0.1 && http     — HTTP traffic from/to specific IP
+
+http || dns                     — HTTP or DNS traffic
+
+!arp                            — hide ARP packets
+
+tcp.port == 80 && ip.src == 10.0.0.1
+
+### Finding credentials
+http.request.method == "POST"       — POST requests (may contain passwords)
+
+ftp.request.command == "PASS"       — FTP passwords in cleartext
+
+http contains "password"            — packets containing the word password
+
+---
+
+## Following Streams
+
+Right-click any packet → Follow → TCP Stream / HTTP Stream / UDP Stream
+
+This reassembles the full conversation into readable text. Very useful for:
+- Reading HTTP requests and responses
+- Seeing FTP file transfers
+- Reading cleartext credentials
+
+---
+
+## Exporting Objects
+
+Extract files transferred over the network:
+
+Go to **File → Export Objects → HTTP** (or SMB, FTP, TFTP)
+
+This lets you save images, documents, and scripts transmitted in the capture.
+
+---
+
+## Statistics
+
+**Statistics → Protocol Hierarchy**
+Shows breakdown of all protocols in the capture — great first step.
+
+**Statistics → Conversations**
+Shows all TCP/UDP conversations — useful for spotting unusual connections.
+
+**Statistics → Endpoints**
+Lists all IP addresses seen in the capture.
+
+**Statistics → IO Graph**
+Plots packet rate over time — spike = burst of activity.
+
+---
+
+## Useful Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+F | Find packet |
+| Ctrl+G | Go to packet number |
+| Ctrl+E | Start/stop capture |
+| Ctrl+Shift+O | Open capture file |
+| Ctrl+Alt+Shift+T | Follow TCP stream |
+
+---
+
+## CTF Tips
+
+**Common CTF tasks with Wireshark:**
+
+1. **Find credentials** — filter `http.request.method == "POST"` and follow stream
+2. **Extract files** — File → Export Objects → HTTP
+3. **Find flags in cleartext** — Edit → Find Packet → String → enter flag format
+4. **Analyse DNS** — filter `dns` and look for unusual domain lookups
+5. **FTP files** — filter `ftp-data`, follow TCP stream, save raw bytes
+6. **Decode base64 in HTTP** — follow HTTP stream, copy encoded value, decode
+
+### Finding a flag in a pcap
+Edit → Find Packet
+
+Search In: Packet bytes
+
+Search Type: String
+
+Value: THM{  (or whatever flag format)
+
+---
+
+## tshark — Command Line Wireshark
+
+```bash
+# Read a pcap and show all packets
+tshark -r capture.pcap
+
+# Show only HTTP traffic
+tshark -r capture.pcap -Y "http"
+
+# Extract specific field
+tshark -r capture.pcap -Y "http.request" -T fields -e http.host -e http.request.uri
+
+# Follow TCP stream 0
+tshark -r capture.pcap -q -z follow,tcp,ascii,0
+```
+
+---
+
+## Practice Labs
+
+- TryHackMe: Wireshark — The Basics
+- TryHackMe: Wireshark — Packet Operations
+- TryHackMe: Wireshark CTFs
+- CyberDefenders: PacketMaze, PoisonedCredentials challenges
+
+---
+
+## Key Terms
+
+| Term | Meaning |
+|------|---------|
+| pcap | Packet capture file format |
+| Display filter | Expression to filter packets shown in Wireshark |
+| Follow stream | Reassemble a full conversation from packets |
+| Export objects | Extract transferred files from a capture |
+| tshark | Command-line version of Wireshark |
+| BPF | Berkeley Packet Filter — capture filter syntax |
+| Dissector | Protocol parser built into Wireshark |

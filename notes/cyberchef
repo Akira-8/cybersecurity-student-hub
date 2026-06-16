@@ -1,0 +1,245 @@
+---
+layout: default
+title: CyberChef Guide
+---
+
+# CyberChef Guide
+
+## What is CyberChef
+
+CyberChef is a free browser-based tool made by GCHQ (UK intelligence agency) for encoding, decoding, encrypting, decrypting, compressing, and analysing data. It requires no installation and runs entirely in your browser.
+
+**Link:** [gchq.github.io/CyberChef](https://gchq.github.io/CyberChef)
+
+It is an essential tool for CTF challenges and day-to-day security work.
+
+---
+
+## Interface Overview
+
+| Section | Purpose |
+|---------|---------|
+| Operations (left sidebar) | All available functions |
+| Recipe (middle-left) | Chain of operations to apply |
+| Input (top-right) | Data you paste or upload |
+| Output (bottom-right) | Result after applying the recipe |
+
+**Recipe** is the key concept — you chain multiple operations together and CyberChef applies them in order.
+
+---
+
+## The Magic Operation
+
+The single most useful button in CyberChef.
+
+Drag **Magic** into the recipe and paste your data. CyberChef will automatically detect the encoding and decode it for you.
+
+Great for when you get an unknown blob of text in a CTF and have no idea what encoding it is.
+
+---
+
+## Encoding and Decoding
+
+### Base64
+
+```
+Operation: From Base64
+Input: SGVsbG8gV29ybGQ=
+Output: Hello World
+```
+Operation: To Base64
+
+Input: Hello World
+
+Output: SGVsbG8gV29ybGQ=
+
+### Base32
+Operation: From Base32
+
+Input: JBSWY3DPEBLW64TMMQ======
+
+Output: Hello World
+
+### Hex
+Operation: From Hex
+
+Input: 48 65 6c 6c 6f
+
+Output: Hello
+
+Operation: To Hex
+
+Input: Hello
+
+Output: 48 65 6c 6c 6f
+
+### Binary
+Operation: From Binary
+
+Input: 01001000 01100101 01101100 01101100 01101111
+
+Output: Hello
+
+### URL Encoding
+Operation: URL Decode
+
+Input: Hello%20World%21
+
+Output: Hello World!
+
+---
+
+## Ciphers
+
+### ROT13
+Operation: ROT13
+
+Input: Uryyb Jbeyq
+
+Output: Hello World
+
+### Caesar Cipher (ROT with custom amount)
+
+Drag **ROT13** and set the amount to any number. Try all 25 rotations using **ROT13 Brute Force**.
+
+### XOR
+Operation: XOR
+
+Key: 0x41 (or any hex value)
+
+Input: (your data)
+
+### Vigenere Cipher
+Operation: Vigenère Decode
+
+Key: secretkey
+
+Input: (ciphertext)
+
+---
+
+## Hashing
+Operation: MD5
+
+Input: password
+
+Output: 5f4dcc3b5aa765d61d8327deb882cf99
+Operation: SHA-256
+
+Input: password
+
+Output: 5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
+
+Use hashing to verify file integrity or identify known hashes.
+
+---
+
+## Chaining Operations (Recipes)
+
+This is where CyberChef becomes powerful. Stack multiple operations.
+
+**Example: Double base64 encoded ROT13**
+Step 1: From Base64
+
+Step 2: ROT13
+
+Step 3: From Base64
+
+**Example: Hex → Base64**
+Step 1: From Hex
+
+Step 2: To Base64
+
+**Example: Gunzip then decode**
+Step 1: From Base64
+
+Step 2: Gunzip
+
+Step 3: From Hex
+
+---
+
+## Useful Operations for CTFs
+
+| Operation | What it does |
+|-----------|-------------|
+| Magic | Auto-detect encoding |
+| From Base64 / To Base64 | Base64 encode/decode |
+| From Hex / To Hex | Hex encode/decode |
+| ROT13 | Caesar cipher with 13 rotation |
+| XOR | XOR with a key |
+| URL Decode | Decode URL-encoded strings |
+| MD5 / SHA256 | Hash data |
+| Gunzip / Inflate | Decompress data |
+| From Charcode | Convert char codes to text |
+| Strings | Extract printable strings |
+| Entropy | Measure randomness of data |
+| Parse DateTime | Decode Unix timestamps |
+| JWT Decode | Decode JSON Web Tokens |
+| AES Decrypt | Decrypt AES-encrypted data |
+
+---
+
+## Saving Recipes
+
+Click the **Save recipe** icon (floppy disk) to save your chain for later.
+
+Share recipes as URLs — CyberChef encodes the recipe into the URL so you can send someone a working recipe link.
+
+---
+
+## Loading Files
+
+You can load binary files (images, executables, zips) directly into CyberChef:
+
+Click the **Open file** button above the Input box. 
+
+Then use operations like:
+- **Strings** to extract readable text
+- **Entropy** to detect encrypted/compressed sections
+- **Extract files** to unpack embedded files
+- **Render Image** to display an image from bytes
+
+---
+
+## CTF Scenarios
+
+**You get a strange string and don't know what it is:**
+→ Paste into CyberChef → Use Magic → Check the output
+
+**String looks like Base64 but Magic doesn't work:**
+→ Try From Base64 manually → Check output → If gibberish, try again → Repeat (some strings are encoded multiple times)
+
+**Flag is hidden in an image:**
+→ Upload image → Try Strings operation → Look for flag pattern
+
+**You see hex-like data:**
+→ From Hex → See if result is readable or another encoding
+
+**Unix timestamp in a log:**
+→ From UNIX Timestamp operation → Converts to human-readable date
+
+**JWT token:**
+→ JWT Decode operation → Shows header, payload, signature
+
+---
+
+## Practice
+
+- TryHackMe: CC: Encoding room
+- TryHackMe: Cyber Chef room
+- Any CTF with crypto or forensics challenges — CyberChef is almost always the answer
+
+---
+
+## Key Terms
+
+| Term | Meaning |
+|------|---------|
+| Recipe | Chain of operations applied in sequence |
+| Magic | Auto-detect and decode unknown encodings |
+| Base64 | Common encoding using A-Z, a-z, 0-9, +, / |
+| ROT13 | Caesar cipher shifting letters by 13 |
+| XOR | Bitwise operation — common in simple encryption |
+| Entropy | Measure of randomness — high entropy means encrypted/compressed |
+| JWT | JSON Web Token — base64 encoded header.payload.signature |

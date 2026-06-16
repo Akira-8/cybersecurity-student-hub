@@ -78,6 +78,24 @@ When you finish Phase 3b you can identify and test all major OWASP Top 10 web vu
 
 ---
 
+## Phase 4b — Tools and Workflow
+
+Essential tools used in almost every CTF and pentest.
+
+### [Gobuster Basics](https://akira-8.github.io/cybersecurity-student-hub/notes/gobuster/)
+
+### [ffuf — Fast Web Fuzzer](https://akira-8.github.io/cybersecurity-student-hub/notes/ffuf/)
+
+### [Wireshark Basics](https://akira-8.github.io/cybersecurity-student-hub/notes/wireshark/)
+
+### [Netcat and Socat](https://akira-8.github.io/cybersecurity-student-hub/notes/netcat/)
+
+### [CyberChef Guide](https://akira-8.github.io/cybersecurity-student-hub/notes/cyberchef/)
+
+When you finish Phase 4b you can perform directory brute forcing, capture and analyse network traffic, transfer files, create shells, and decode any encoding you encounter.
+
+---
+
 ## Phase 5 — Blue Team and Detection
 > Learn how defenders think, monitor, and respond.
 

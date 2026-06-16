@@ -87,6 +87,20 @@ Pick a topic below. New here? Follow the [Roadmap](/cybersecurity-student-hub/ro
 
 ---
 
+## Tools and Workflow
+
+### [Gobuster Basics](https://akira-8.github.io/cybersecurity-student-hub/notes/gobuster/)
+
+### [ffuf — Fast Web Fuzzer](https://akira-8.github.io/cybersecurity-student-hub/notes/ffuf/)
+
+### [Wireshark Basics](https://akira-8.github.io/cybersecurity-student-hub/notes/wireshark/)
+
+### [Netcat and Socat](https://akira-8.github.io/cybersecurity-student-hub/notes/netcat/)
+
+### [CyberChef Guide](https://akira-8.github.io/cybersecurity-student-hub/notes/cyberchef/)
+
+---
+
 ## CTF and Practice
 
 ### [CTF Tips for Beginners](https://akira-8.github.io/cybersecurity-student-hub/notes/ctf-tips/)

@@ -1,0 +1,215 @@
+---
+layout: default
+title: ffuf Basics
+---
+
+# ffuf — Fast Web Fuzzer
+
+## What is ffuf
+
+ffuf (Fuzz Faster U Fool) is a fast and highly flexible web fuzzer written in Go. It can fuzz directories, files, parameters, headers, subdomains, virtual hosts, and any other part of an HTTP request using the keyword `FUZZ` as a placeholder.
+
+---
+
+## Installation
+
+```bash
+# Kali Linux
+sudo apt install ffuf
+
+# From source
+go install github.com/ffuf/ffuf/v2@latest
+
+# Verify
+ffuf -V
+```
+
+---
+
+## Core Concept
+
+Place the word `FUZZ` anywhere in a request. ffuf replaces it with every line from your wordlist.
+
+```bash
+ffuf -u http://target.com/FUZZ -w wordlist.txt
+```
+
+---
+
+## Directory and File Fuzzing
+
+```bash
+ffuf -u http://target.com/FUZZ \
+     -w /usr/share/seclists/Discovery/Web-Content/common.txt
+```
+
+### With file extensions
+
+```bash
+ffuf -u http://target.com/FUZZ \
+     -w /usr/share/seclists/Discovery/Web-Content/raft-large-words.txt \
+     -e .php,.html,.txt,.bak,.zip,.conf
+```
+
+---
+
+## Common Flags
+
+| Flag | Meaning |
+|------|---------|
+| `-u` | Target URL |
+| `-w` | Wordlist (use `wordlist.txt:KEYWORD` for multiple) |
+| `-e` | File extensions to append |
+| `-t` | Threads (default 40) |
+| `-o` | Output file |
+| `-of` | Output format: json, csv, html, md |
+| `-mc` | Match HTTP status codes |
+| `-ms` | Match response size |
+| `-ml` | Match number of lines |
+| `-fc` | Filter out status codes |
+| `-fs` | Filter out response size |
+| `-fl` | Filter out line count |
+| `-H` | Add header |
+| `-b` | Add cookie |
+| `-X` | HTTP method |
+| `-d` | POST data |
+| `-r` | Follow redirects |
+| `-v` | Verbose output |
+| `-ac` | Auto-calibrate filters |
+
+---
+
+## Filtering Responses
+
+The most important skill in ffuf. You need to filter noise to find real results.
+
+### Filter by status code
+
+```bash
+# Only show 200 responses
+ffuf -u http://target.com/FUZZ -w wordlist.txt -mc 200
+
+# Hide 404 responses
+ffuf -u http://target.com/FUZZ -w wordlist.txt -fc 404
+```
+
+### Filter by response size
+
+If all false positives have the same size (e.g. 1495 bytes):
+```bash
+ffuf -u http://target.com/FUZZ -w wordlist.txt -fs 1495
+```
+
+### Auto-calibrate (best for beginners)
+
+ffuf automatically detects and filters false positives:
+```bash
+ffuf -u http://target.com/FUZZ -w wordlist.txt -ac
+```
+
+---
+
+## Parameter Fuzzing
+
+Find hidden GET parameters:
+```bash
+ffuf -u "http://target.com/page?FUZZ=value" \
+     -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt \
+     -fs 1234
+```
+
+Find parameter values:
+```bash
+ffuf -u "http://target.com/page?id=FUZZ" \
+     -w /usr/share/seclists/Fuzzing/numbers.txt
+```
+
+POST data fuzzing:
+```bash
+ffuf -u http://target.com/login \
+     -X POST \
+     -d "username=admin&password=FUZZ" \
+     -w /usr/share/wordlists/rockyou.txt \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -fc 401
+```
+
+---
+
+## Virtual Host Fuzzing
+
+Find virtual hosts on a target IP:
+```bash
+ffuf -u http://10.10.10.10 \
+     -H "Host: FUZZ.target.com" \
+     -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt \
+     -fs 1234
+```
+
+The `-fs` here filters the default response size so only different (real) vhosts show up.
+
+---
+
+## Multiple Wordlists
+
+Use `W1`, `W2` as keywords with multiple wordlists:
+```bash
+ffuf -u http://target.com/W1/W2 \
+     -w dirs.txt:W1 \
+     -w files.txt:W2
+```
+
+---
+
+## Saving Output
+
+```bash
+ffuf -u http://target.com/FUZZ \
+     -w wordlist.txt \
+     -o results.json \
+     -of json
+```
+
+---
+
+## Recommended Wordlists
+common.txt                          — fast directory discovery
+
+raft-large-words.txt                — thorough directory discovery
+
+raft-large-files.txt                — file discovery
+
+burp-parameter-names.txt            — parameter fuzzing
+
+subdomains-top1million-5000.txt     — vhost/subdomain fuzzing
+
+---
+
+## CTF Tips
+
+- Use `-ac` on CTF boxes — it auto-filters noise very well
+- Always fuzz for file extensions on PHP boxes: `-e .php,.bak,.txt`
+- Parameter fuzzing often reveals hidden admin features
+- Combine vhost fuzzing with `/etc/hosts` entries to access discovered hosts
+
+---
+
+## Practice Labs
+
+- TryHackMe: Content Discovery room
+- TryHackMe: Subdomain Enumeration
+- PortSwigger: Fuzzing practice
+
+---
+
+## Key Terms
+
+| Term | Meaning |
+|------|---------|
+| Fuzzing | Automated testing with many inputs |
+| FUZZ | ffuf placeholder replaced by wordlist entries |
+| False positive | A response that looks valid but is not |
+| Filter | Removing unwanted responses from output |
+| Calibrate | Auto-detect and remove false positive patterns |
+| Vhost | Virtual host — multiple domains on one IP |
+| Parameter | A key=value pair in a URL or POST body |
